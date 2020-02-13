@@ -1,0 +1,7 @@
+/* Equipment class
+ *
+ *
+ *
+ * */
+
+
