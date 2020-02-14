@@ -2,7 +2,7 @@
 Author: Joungho Seo
 ISTE-330
 Professor Stephen Zilora
-2/5/2020
+2/13/2020
 */
 import java.sql.*;
 import java.util.*;
@@ -52,7 +52,12 @@ public class MySQLDatabase {
          return false;
       }
    }
-
+/**
+     * This method gets the data from the db
+     * @param sql statement and int for number of fields
+     * @return Arraylist of an arraylist of strings
+     *
+     */
    public static ArrayList<ArrayList<String>> getData(String sqlCommand, int numFields) {
       ArrayList<ArrayList<String>> outer = new ArrayList<ArrayList<String>>();
       try{
@@ -69,13 +74,18 @@ public class MySQLDatabase {
             
          }
       } catch (SQLException se) {
-         se.printStackTrace();
+         System.out.println(se.toString());
       } catch(Exception e) {
-         e.printStackTrace();
+         System.out.println(e.toString());
       }
       return outer;
    }
-
+/**
+     * This method runs sql statement that sets/update/delete data
+     * @param sql command in string
+     * @return how many records were updated/deleted/selected
+     *
+     */
    public static int setData(String sqlCommand){
       try {
          Statement st = connect.createStatement();
@@ -96,9 +106,4 @@ public class MySQLDatabase {
 
 
 
-   public static void main(String[] args) {
-      MySQLDatabase test = new MySQLDatabase();
-      test.getConnection();
-      test.terminateConnection();
-   }
 }

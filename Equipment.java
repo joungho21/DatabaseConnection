@@ -1,7 +1,7 @@
 /* Equipment class
- *
- *
- *
+ * ISTE 330
+ * Part of PE03
+ * Joungho Seo
  * */
 import java.util.*;  
 public class Equipment {
