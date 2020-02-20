@@ -95,4 +95,13 @@ public class Equipment {
       System.out.println(MySQLdb.setData(query)+" records were deleted");
       MySQLdb.terminateConnection();
    }
+   
+   public static void printSQL() {
+      MySQLDatabase MySQLdb = new MySQLDatabase();
+      MySQLdb.getConnection();
+      String query ="SELECT * FROM equipment WHERE EquipID ="+id;
+      ArrayList<ArrayList<String>> get
+   
+   
+   }
 }
