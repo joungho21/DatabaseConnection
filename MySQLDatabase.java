@@ -89,55 +89,55 @@ public class MySQLDatabase {
       ArrayList < ArrayList < String >> outer = new ArrayList < ArrayList < String >> ();
       if (field) {
          try {
-              Statement st = connect.createStatement();
-              ResultSet result = st.executeQuery(sqlCommand);
-              ResultSetMetaData resultMD = result.getMetaData();
-              int numColumn = resultMD.getColumnCount();
-              ArrayList <String> name = new ArrayList <String> ();
-              ArrayList <String> type = new ArrayList <String> ();
-              for (int j=0; j<numColumn; j++) {
-                  name.add(resultMD.getColumnName(j+1));
-                  type.add(resultMD.getColumnTypeName(j+1));
-              }
-              outer.add(name);
-              outer.add(type);   
-              while (result.next()) {
-                  ArrayList <String> inner = new ArrayList <String> ();
-                  for (int i = 0; i < numColumn; i++) {
-                      inner.add(result.getString(i));
-                  }
-                  outer.add(inner);
-
-              }
-          } catch (SQLException se) {
-              System.out.println(se.toString());
-          } catch (Exception e) {
-              System.out.println(e.toString());
-          }
-          return outer;
+            Statement st = connect.createStatement();
+            ResultSet result = st.executeQuery(sqlCommand);
+            ResultSetMetaData resultMD = result.getMetaData();
+            int numColumn = resultMD.getColumnCount();
+            ArrayList <String> name = new ArrayList <String> ();
+            ArrayList <String> type = new ArrayList <String> ();
+            for (int j=0; j<numColumn; j++) {
+               name.add(resultMD.getColumnName(j+1));
+               type.add(resultMD.getColumnTypeName(j+1));
+            }
+            outer.add(name);
+            outer.add(type);   
+            while (result.next()) {
+               ArrayList <String> inner = new ArrayList <String> ();
+               for (int i = 0; i < numColumn; i++) {
+                  inner.add(result.getString(i));
+               }
+               outer.add(inner);
+            
+            }
+         } catch (SQLException se) {
+            System.out.println(se.toString());
+         } catch (Exception e) {
+            System.out.println(e.toString());
+         }
+         return outer;
       } 
       else {
-          try {
-              Statement st = connect.createStatement();
-              ResultSet result = st.executeQuery(sqlCommand);
-              ResultSetMetaData resultMD = result.getMetaData();
-              int numColumn = resultMD.getColumnCount();  
-              while (result.next()) {
-                  ArrayList <String> inner = new ArrayList <String> ();
-                  for (int i = 0; i < numColumn; i++) {
-                      inner.add(result.getString(i));
-                  }
-                  outer.add(inner);
-
-              }
-          } catch (SQLException se) {
-              System.out.println(se.toString());
-          } catch (Exception e) {
-              System.out.println(e.toString());
-          }
-          return outer;
+         try {
+            Statement st = connect.createStatement();
+            ResultSet result = st.executeQuery(sqlCommand);
+            ResultSetMetaData resultMD = result.getMetaData();
+            int numColumn = resultMD.getColumnCount();  
+            while (result.next()) {
+               ArrayList <String> inner = new ArrayList <String> ();
+               for (int i = 0; i < numColumn; i++) {
+                  inner.add(result.getString(i));
+               }
+               outer.add(inner);
+            
+            }
+         } catch (SQLException se) {
+            System.out.println(se.toString());
+         } catch (Exception e) {
+            System.out.println(e.toString());
+         }
+         return outer;
       }
-      }
+   }
 /**
      * This method runs sql statement that sets/update/delete data
      * @param sql command in string

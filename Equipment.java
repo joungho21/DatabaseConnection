@@ -100,8 +100,13 @@ public class Equipment {
       MySQLDatabase MySQLdb = new MySQLDatabase();
       MySQLdb.getConnection();
       String query ="SELECT * FROM equipment WHERE EquipID ="+id;
-      ArrayList<ArrayList<String>> get
-   
+      ArrayList<ArrayList<String>> outputAL = MySQLdb.getData(query,true);
+      for (int i = 0; i < outputAL.size(); i++) { 
+         for (int j = 0; j < outputAL.get(i).size(); j++) { 
+            System.out.print(outputAL.get(i).get(j) + " "); 
+         } 
+         System.out.println(); 
+      } 
    
    }
 }
