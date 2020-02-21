@@ -104,7 +104,7 @@ public class MySQLDatabase {
             while (result.next()) {
                ArrayList <String> inner = new ArrayList <String> ();
                for (int i = 0; i < numColumn; i++) {
-                  inner.add(result.getString(i));
+                  inner.add(result.getString(i+1));
                }
                outer.add(inner);
             
@@ -125,7 +125,7 @@ public class MySQLDatabase {
             while (result.next()) {
                ArrayList <String> inner = new ArrayList <String> ();
                for (int i = 0; i < numColumn; i++) {
-                  inner.add(result.getString(i));
+                  inner.add(result.getString(i+1));
                }
                outer.add(inner);
             
